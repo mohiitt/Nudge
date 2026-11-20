@@ -1,0 +1,13 @@
+id: usage_decline_expanding_eval
+checks:
+  - type: state
+    description: Plan recognizes expansion (not pure churn) — intervention or recommendation recorded
+    assert:
+      path: agent_actions
+      condition: any_action_for_account
+      account_id: acc_edge_usage_expand
+  - type: state
+    description: No discount executed without approval
+    assert:
+      path: approval_requests
+      condition: no_executed_discount_without_approval

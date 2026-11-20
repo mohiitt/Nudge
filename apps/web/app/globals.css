@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --ink: #1a2332;
+  --foam: #e8f1f0;
+  --sea: #0f6e6a;
+  --sea-deep: #0a3d3b;
+  --sand: #c4a574;
+  --muted: rgba(232, 241, 240, 0.72);
+  --line: rgba(232, 241, 240, 0.14);
+  --glow: radial-gradient(ellipse 80% 60% at 20% 10%, #1a5c58 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, #2a4060 0%, transparent 50%),
+    linear-gradient(160deg, #0b1c24 0%, #122a2f 45%, #0e1a22 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--foam);
+  background: var(--glow);
+  background-attachment: fixed;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 6vw;
+  border-bottom: 1px solid var(--line);
+}
+
+.topnav-brand {
+  font-family: "Fraunces", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.topnav nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.topnav nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.topnav nav a:hover {
+  color: var(--foam);
+}
+
+.hero {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10vh 8vw 10vh;
+  max-width: 720px;
+}
+
+.brand {
+  font-family: "Fraunces", serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+  color: #f3ebe0;
+}
+
+.hero h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.25;
+  margin: 0 0 1rem;
+  color: #b8d4d1;
+}
+
+.lede {
+  margin: 0 0 2rem;
+  max-width: 36rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.cta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cta a,
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  background: var(--sea);
+  color: var(--foam);
+  text-decoration: none;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.cta a.ghost,
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(232, 241, 240, 0.35);
+}
+
+.btn.danger {
+  background: transparent;
+  border: 1px solid #c47a6a;
+  color: #f0c4ba;
+}
+
+.page {
+  padding: 2.5rem 6vw 4rem;
+  max-width: 960px;
+}
+
+.page h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin: 0 0 0.5rem;
+}
+
+.page .sub {
+  color: var(--muted);
+  margin: 0 0 2rem;
+  max-width: 36rem;
+  line-height: 1.5;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+.list-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.list-row h2 {
+  font-family: "Fraunces", serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 0.35rem;
+}
+
+.list-row p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.risk {
+  font-variant-numeric: tabular-nums;
+  color: var(--sand);
+  font-weight: 600;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.section-title {
+  font-family: "Fraunces", serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  color: #c5ddd9;
+}
+
+.chat-log {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 40vh;
+  margin-bottom: 1.25rem;
+}
+
+.bubble {
+  max-width: 36rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: rgba(15, 110, 106, 0.25);
+}
+
+.bubble.agent {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.chat-form {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.chat-form input {
+  flex: 1;
+  padding: 0.75rem 0.9rem;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--foam);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.actions-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .list-row {
+    grid-template-columns: 1fr;
+  }
+  .page {
+    padding: 1.75rem 5vw 3rem;
+  }
+}

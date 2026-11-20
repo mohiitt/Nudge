@@ -1,0 +1,8 @@
+id: duplicate_tickets_eval
+checks:
+  - type: state
+    description: Duplicate SSO tickets collapsed to one theme in memory or recommendation
+    assert:
+      path: agent_memory
+      condition: contains_theme
+      theme: SSO

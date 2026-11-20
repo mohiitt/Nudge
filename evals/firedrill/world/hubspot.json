@@ -1,0 +1,7 @@
+{
+  "companies": [
+    {"id": "hs_acc_edge_usage_expand", "properties": {"name": "Expanding Ops Co", "account_id": "acc_edge_usage_expand"}},
+    {"id": "hs_acc_edge_discount", "properties": {"name": "Discount Seekers", "account_id": "acc_edge_discount"}}
+  ],
+  "tasks": []
+}

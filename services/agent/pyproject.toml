@@ -1,0 +1,38 @@
+[project]
+name = "nudge-agent"
+version = "0.1.0"
+description = "Nudge — personal Customer Success agent backend"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.32.0",
+  "pydantic>=2.9.0",
+  "pydantic-settings>=2.6.0",
+  "httpx>=0.27.0",
+  "anthropic>=0.39.0",
+  "python-dotenv>=1.0.1",
+  "pymysql>=1.1.1",
+  "cryptography>=43.0.0",
+  "psycopg[binary]>=3.2.0",
+  "orjson>=3.10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "pytest-asyncio>=0.24.0",
+  "ruff>=0.7.0",
+]
+
+[build-system]
+requires = ["setuptools>=75.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

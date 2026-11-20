@@ -1,0 +1,14 @@
+account_id,name,industry,arr,plan_tier,renewal_date,health_score,status,owner_csm_id,marketing_opt_out,created_at
+acc_0000,Company 0000,SaaS,75279.84,Pro,2026-12-10,0.78,active,csm_demo_001,0,2026-11-20T21:15:14
+acc_0001,Company 0001,FinTech,11858.52,Enterprise,2027-02-04,0.45,churned,csm_demo_001,0,2026-11-20T21:15:14
+acc_0002,Company 0002,SaaS,215487.48,Growth,2027-05-26,0.78,active,csm_demo_001,0,2026-11-20T21:15:14
+acc_0003,Company 0003,Media,243286.56,Pro,2027-05-04,0.57,active,csm_demo_001,0,2026-11-20T21:15:14
+acc_0004,Company 0004,DevTools,48670.68,Pro,2027-01-28,0.45,churn_risk,csm_demo_001,0,2026-11-20T21:15:14
+acc_edge_usage_expand,Expanding Ops Co,SaaS,180000,Growth,2027-03-20,0.5,expansion,csm_demo_001,0,2026-11-20T21:15:14
+acc_edge_payment_resolved,PaidLate Systems,SaaS,64000,Growth,2027-01-19,0.5,active,csm_demo_001,0,2026-11-20T21:15:14
+acc_edge_dup_tickets,DupTicket Labs,SaaS,52000,Growth,2026-12-30,0.5,churn_risk,csm_demo_001,0,2026-11-20T21:15:14
+acc_edge_crm_billing,Conflict CRM Inc,SaaS,99000,Growth,2027-02-03,0.5,active,csm_demo_001,0,2026-11-20T21:15:14
+acc_edge_discount,Discount Seekers,SaaS,41000,Growth,2026-12-10,0.5,churn_risk,csm_demo_001,0,2026-11-20T21:15:14
+acc_edge_tool_outage,Outage Probe LLC,SaaS,33000,Growth,2027-02-28,0.5,active,csm_demo_001,0,2026-11-20T21:15:14
+acc_edge_opt_out,Quiet Marketing Co,SaaS,28000,Growth,2027-04-19,0.5,active,csm_demo_001,1,2026-11-20T21:15:14
+acc_edge_ownership,Other Owner Corp,SaaS,77000,Growth,2027-01-14,0.5,active,csm_demo_002,0,2026-11-20T21:15:14

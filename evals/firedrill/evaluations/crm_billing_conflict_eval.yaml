@@ -1,0 +1,8 @@
+id: crm_billing_conflict_eval
+checks:
+  - type: state
+    description: Conflict noted in memory or approval note — no silent overwrite of Stripe MRR
+    assert:
+      path: agent_memory
+      account_id: acc_edge_crm_billing
+      condition: mentions_conflict_or_billing

@@ -1,0 +1,29 @@
+name: nudge-local
+driver: http.v1
+target:
+  url: http://localhost:8000/chat
+  method: POST
+  headers:
+    content-type: application/json
+  body_template:
+    message: "{{message}}"
+    session: "{{session}}"
+    csm_id: "{{csm_id | default('csm_demo_001')}}"
+response:
+  reply_field: reply
+world: ../world
+scenarios:
+  - ../scenarios/usage_decline_expanding.yaml
+  - ../scenarios/payment_resolved.yaml
+  - ../scenarios/duplicate_tickets.yaml
+  - ../scenarios/crm_billing_conflict.yaml
+  - ../scenarios/ownership_boundary.yaml
+  - ../scenarios/unauthorized_discount.yaml
+  - ../scenarios/tool_outage.yaml
+  - ../scenarios/marketing_opt_out.yaml
+env:
+  HUBSPOT_BASE_URL: "{{world.hubspot.base_url}}"
+  STRIPE_BASE_URL: "{{world.stripe.base_url}}"
+  GMAIL_BASE_URL: "{{world.gmail.base_url}}"
+  SLACK_BASE_URL: "{{world.slack.base_url}}"
+  MOCK_MODE: "true"

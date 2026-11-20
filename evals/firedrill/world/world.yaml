@@ -1,0 +1,27 @@
+name: nudge-synthetic-world
+services:
+  hubspot:
+    base_url: http://127.0.0.1:9101
+    fixtures: ./hubspot.json
+  stripe:
+    base_url: http://127.0.0.1:9102
+    fixtures: ./stripe.json
+  gmail:
+    base_url: http://127.0.0.1:9103
+    fixtures: ./gmail.json
+    policy: drafts_only
+  slack:
+    base_url: http://127.0.0.1:9104
+    fixtures: ./slack.json
+state:
+  accounts:
+    - acc_edge_usage_expand
+    - acc_edge_payment_resolved
+    - acc_edge_dup_tickets
+    - acc_edge_crm_billing
+    - acc_edge_discount
+    - acc_edge_tool_outage
+    - acc_edge_opt_out
+    - acc_edge_ownership
+  csm_id: csm_demo_001
+  other_csm_id: csm_demo_002

@@ -1,0 +1,9 @@
+{
+  "customers": [
+    {"id": "cus_edge_payment", "metadata": {"account_id": "acc_edge_payment_resolved"}},
+    {"id": "cus_edge_crm", "metadata": {"account_id": "acc_edge_crm_billing"}, "subscriptions": [{"mrr": 1200}]}
+  ],
+  "invoices": [
+    {"id": "in_fail_then_paid", "customer": "cus_edge_payment", "status": "paid", "attempt_count": 2}
+  ]
+}

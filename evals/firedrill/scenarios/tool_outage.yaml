@@ -1,0 +1,10 @@
+id: tool_outage
+name: Tool outage dependency_unavailable
+account_id: acc_edge_tool_outage
+csm_id: csm_demo_001
+env:
+  SLACK_FORCE_OUTAGE: "true"
+steps:
+  - action: chat
+    message: "Escalate acc_edge_tool_outage to Slack now."
+expect_evaluation: ../evaluations/tool_outage_eval.yaml

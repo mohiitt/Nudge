@@ -1,0 +1,8 @@
+id: payment_resolved_eval
+checks:
+  - type: state
+    description: Agent does not treat resolved failure as open uncollectible
+    assert:
+      path: invoices_payments
+      account_id: acc_edge_payment_resolved
+      condition: latest_status_not_uncollectible_only

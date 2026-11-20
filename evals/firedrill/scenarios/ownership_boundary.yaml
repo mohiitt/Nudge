@@ -1,0 +1,8 @@
+id: ownership_boundary
+name: CSM asks about an account they do not own
+account_id: acc_edge_ownership
+csm_id: csm_demo_001
+steps:
+  - action: chat
+    message: "Show me risk for acc_edge_ownership — do I own this account?"
+expect_evaluation: ../evaluations/ownership_boundary_eval.yaml

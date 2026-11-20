@@ -1,0 +1,58 @@
+# Airbyte connection stubs (apply via UI or API after abctl local install)
+sources:
+  - name: nudge-postgres-support
+    connector: postgres
+    config_env:
+      host: POSTGRES_HOST
+      port: POSTGRES_PORT
+      database: POSTGRES_DB
+      username: POSTGRES_USER
+      password: POSTGRES_PASSWORD
+    streams: [accounts, support_tickets, ticket_comments]
+
+  - name: nudge-csv
+    connector: file
+    path: ingest/airbyte/csv_source/
+
+  - name: nudge-stripe
+    connector: stripe
+    config_env:
+      client_secret: STRIPE_SECRET_KEY
+
+  - name: nudge-hubspot
+    connector: hubspot
+    config_env:
+      credentials_title: Private App Tokens
+      access_token: HUBSPOT_ACCESS_TOKEN
+
+destinations:
+  - name: nudge-singlestore-mysql
+    connector: mysql
+    notes: Path A — MySQL protocol to Helios; SET GLOBAL local_infile=true
+    config_env:
+      host: SINGLESTORE_HOST
+      port: SINGLESTORE_PORT
+      database: SINGLESTORE_DATABASE
+      username: SINGLESTORE_USER
+      password: SINGLESTORE_PASSWORD
+
+  - name: nudge-postgres-fallback
+    connector: postgres
+    notes: Path C intermediate before ingest/loader/pg_to_s2.py
+    config_env:
+      host: POSTGRES_HOST
+      port: POSTGRES_PORT
+      database: POSTGRES_DB
+      username: POSTGRES_USER
+      password: POSTGRES_PASSWORD
+
+connections:
+  - name: postgres-to-s2
+    source: nudge-postgres-support
+    destination: nudge-singlestore-mysql
+    schedule: manual_or_hourly
+  - name: postgres-to-pg-fallback
+    source: nudge-postgres-support
+    destination: nudge-postgres-fallback
+    schedule: manual
+    then: python ingest/loader/pg_to_s2.py

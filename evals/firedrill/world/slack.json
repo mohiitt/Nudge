@@ -1,0 +1,7 @@
+{
+  "channels": ["#cs-escalations"],
+  "messages": [],
+  "outages": {
+    "acc_edge_tool_outage": {"error": "dependency_unavailable"}
+  }
+}

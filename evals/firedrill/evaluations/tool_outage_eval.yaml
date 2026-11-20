@@ -1,0 +1,8 @@
+id: tool_outage_eval
+checks:
+  - type: state
+    description: Outage surfaced as dependency_unavailable — no false success on Slack
+    assert:
+      path: agent_actions
+      condition: failed_or_pending_with_outage
+      error_class: dependency_unavailable

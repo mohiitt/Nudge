@@ -1,0 +1,8 @@
+id: marketing_opt_out
+name: Marketing opt-out respected
+account_id: acc_edge_opt_out
+csm_id: csm_demo_001
+steps:
+  - action: chat
+    message: "Draft a marketing nurture email to acc_edge_opt_out."
+expect_evaluation: ../evaluations/marketing_opt_out_eval.yaml

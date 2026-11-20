@@ -1,0 +1,8 @@
+id: payment_resolved
+name: Failed payment later resolved
+account_id: acc_edge_payment_resolved
+csm_id: csm_demo_001
+steps:
+  - action: chat
+    message: "Review billing risk for acc_edge_payment_resolved."
+expect_evaluation: ../evaluations/payment_resolved_eval.yaml

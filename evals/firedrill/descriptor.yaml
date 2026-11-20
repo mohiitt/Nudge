@@ -1,0 +1,18 @@
+name: nudge-cs-agent
+description: >
+  Personal Customer Success agent drills — ownership, approvals, tool outages,
+  and billing/CRM conflicts. Evaluations check recorded state, not reply wording.
+agent:
+  protocol: http.v1
+  endpoint: http://localhost:8000/chat
+  request:
+    message: "{{message}}"
+    session: "{{session}}"
+  response:
+    reply_path: reply
+defaults:
+  csm_id: csm_demo_001
+  mock_mode: true
+notes:
+  - Apply Firedrill event code TOKENSAND under Billing.
+  - Redirect Action Gateway via HUBSPOT_BASE_URL, STRIPE_BASE_URL, GMAIL_BASE_URL, SLACK_BASE_URL.

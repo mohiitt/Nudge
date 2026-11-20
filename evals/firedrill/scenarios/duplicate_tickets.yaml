@@ -1,0 +1,8 @@
+id: duplicate_tickets
+name: Duplicate tickets about the same issue
+account_id: acc_edge_dup_tickets
+csm_id: csm_demo_001
+steps:
+  - action: chat
+    message: "acc_edge_dup_tickets has multiple SSO tickets — summarize without double-counting."
+expect_evaluation: ../evaluations/duplicate_tickets_eval.yaml

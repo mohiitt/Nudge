@@ -1,0 +1,10 @@
+id: usage_decline_expanding
+name: Usage declines but customer is expanding
+account_id: acc_edge_usage_expand
+csm_id: csm_demo_001
+steps:
+  - action: chat
+    message: "Is acc_edge_usage_expand at risk? Usage is down but check expansion signals."
+  - action: chat
+    message: "Propose a plan that accounts for seat expansion despite usage decline."
+expect_evaluation: ../evaluations/usage_decline_expanding_eval.yaml

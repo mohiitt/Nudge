@@ -1,0 +1,8 @@
+id: crm_billing_conflict
+name: CRM and billing data conflict
+account_id: acc_edge_crm_billing
+csm_id: csm_demo_001
+steps:
+  - action: chat
+    message: "CRM ARR and Stripe MRR disagree for acc_edge_crm_billing. What should I trust?"
+expect_evaluation: ../evaluations/crm_billing_conflict_eval.yaml

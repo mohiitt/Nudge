@@ -1,0 +1,84 @@
+---
+description: Shared contracts for all Nudge agents (schema, Pydantic, ownership, approvals)
+globs:
+  - apps/**
+  - services/**
+  - data/**
+  - ingest/**
+  - db/**
+  - evals/**
+alwaysApply: true
+---
+
+# Nudge shared contracts
+
+## Ownership
+
+- Every data query **must** filter `owner_csm_id = :csm_id` (or join through
+  `account_ownership` / `accounts.owner_csm_id`).
+- Every tool call carries `csm_id`. Do not rely on the LLM prompt for access control.
+- If a CSM asks about an account they do not own → refuse and log `action.skipped`
+  with reason `ownership_boundary`.
+
+## Approvals
+
+Sensitive actions **always** create an `approval_requests` row before execution:
+
+- `external_email` (drafts only — never send real external email)
+- `discount`
+- `contract_change`
+- `refund`
+
+Also create approvals for escalations / tasks when policy says so
+(`approval_policies`). Action Gateway executes only after status `approved`.
+
+## Shared models
+
+Import from `services/agent/app/contracts.py`:
+
+- `Account`, `RiskSignal`, `Recommendation`, `BriefingItem`, `DailyBriefing`
+- `AccountDeepDive`, `ActionRequest`, `Approval`, `ApprovalDecision`
+- `ChatRequest` / `ChatResponse` (Firedrill `http.v1`:
+  `POST {"message","session"}` → `{"reply"}`)
+- Tool arg models: `GetBriefingArgs`, `GetAccountRiskArgs`,
+  `FindSimilarAccountsArgs`, `DraftMessageArgs`, `EscalateArgs`, `CreateTaskArgs`
+
+Do not invent parallel JSON shapes in the web app or Firedrill world — mirror
+these contracts.
+
+## Schema
+
+Canonical DDL: `db/singlestore/schema.sql`. Views:
+
+- `v_usage_delta_30d`
+- `v_account_risk_signals`
+
+Hybrid context lives in `services/agent/app/data/context.py` and always includes
+the ownership filter.
+
+## Action Gateway URLs
+
+Read base URLs from env so Firedrill can redirect:
+
+- `HUBSPOT_BASE_URL`, `STRIPE_BASE_URL`, `GMAIL_BASE_URL`, `SLACK_BASE_URL`
+
+## Telemetry
+
+Event names and properties: `docs/events.md`. Amplitude Free plan: batch ≤ 10
+events per HTTP V2 request.
+
+## Directory ownership (parallel agents)
+
+| Agent | Owns |
+|-------|------|
+| A | `data/` |
+| B | `ingest/` |
+| C | `db/` + `services/agent/app/data/` |
+| D | `services/agent/app/sie/` |
+| E | `services/agent/app/agent/`, `policy/`, `actions/` |
+| F | `apps/web/` |
+| G | `services/agent/app/telemetry/` |
+| H | `evals/firedrill/` |
+
+Do not edit another agent's directory except via shared contracts / schema /
+docs agreed in Phase 0.
